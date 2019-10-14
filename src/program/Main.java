@@ -32,7 +32,7 @@ public class Main extends Application{
 		/*
 			For the size of the rectangle inside an ellipse I'll use the formulas:
 			R_Width = (E_width / 2) * sqrt(2)
-			R_Height = (E_Height) * sqrt(2)
+			R_Height = (E_Height/2) * sqrt(2)
 		*/
 
 		MyRectangle r2 = new MyRectangle(400,250,(o1.getWidth()/2)*Math.sqrt(2),(o1.getHeight()/2)*Math.sqrt(2),MyColor.PINK);
