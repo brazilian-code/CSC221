@@ -1,6 +1,4 @@
-# CSC221
-
-CSC221 - Software Design Lab
+# CSC221 - Software Design Lab
 
 City College of New York (CUNY)
 
