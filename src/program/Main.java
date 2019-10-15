@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import program.Shapes.MyLine;
 import program.Shapes.MyOval;
@@ -23,10 +24,10 @@ public class Main extends Application{
 		
 		// Creating Shapes and drawing them to the board
 		
-		MyRectangle r1 = new MyRectangle(400,250,320,200,MyColor.MAGENTA);
+		MyRectangle r1 = new MyRectangle(400,250,400,250,Color.MAGENTA);
 		r1.draw(gc);
 		
-		MyOval o1 = new MyOval(400,250,320,200,MyColor.BLUE);
+		MyOval o1 = new MyOval(400,250,400,250,Color.BLUE);
 		o1.draw(gc);
 
 		/*
@@ -35,23 +36,23 @@ public class Main extends Application{
 			R_Height = (E_Height/2) * sqrt(2)
 		*/
 
-		MyRectangle r2 = new MyRectangle(400,250,(o1.getWidth()/2)*Math.sqrt(2),(o1.getHeight()/2)*Math.sqrt(2),MyColor.PINK);
+		MyRectangle r2 = new MyRectangle(400,250,(o1.getWidth()/2)*Math.sqrt(2),(o1.getHeight()/2)*Math.sqrt(2),Color.PINK);
 		r2.draw(gc);
 		
-		MyOval o2 = new MyOval(400,250,(o1.getWidth()/2)*Math.sqrt(2),(o1.getHeight()/2)*Math.sqrt(2),MyColor.BROWN);
+		MyOval o2 = new MyOval(400,250,(o1.getWidth()/2)*Math.sqrt(2),(o1.getHeight()/2)*Math.sqrt(2),Color.BROWN);
 		o2.draw(gc);
 		
-		MyRectangle r3 = new MyRectangle(400,250,(o2.getWidth()/2)*Math.sqrt(2),(o2.getHeight()/2)*Math.sqrt(2),MyColor.RED);
+		MyRectangle r3 = new MyRectangle(400,250,(o2.getWidth()/2)*Math.sqrt(2),(o2.getHeight()/2)*Math.sqrt(2),Color.RED);
 		r3.draw(gc);
 		
-		MyOval o3 = new MyOval(400,250,(o2.getWidth()/2)*Math.sqrt(2),(o2.getHeight()/2)*Math.sqrt(2),MyColor.GREEN);
+		MyOval o3 = new MyOval(400,250,(o2.getWidth()/2)*Math.sqrt(2),(o2.getHeight()/2)*Math.sqrt(2),Color.GREEN);
 		o3.draw(gc);
 		
-		MyLine top = new MyLine(0,0,800,0,MyColor.BLACK);
-		MyLine bottom = new MyLine(0,500,800,500,MyColor.BLACK);
-		MyLine left = new MyLine(0,0,0,500,MyColor.BLACK);
-		MyLine right = new MyLine(800,0,800,500,MyColor.BLACK);
-		MyLine diagonal = new MyLine(0,0,800,500,MyColor.BLACK);
+		MyLine top = new MyLine(0,0,800,0,Color.BLACK);
+		MyLine bottom = new MyLine(0,500,800,500,Color.BLACK);
+		MyLine left = new MyLine(0,0,0,500,Color.BLACK);
+		MyLine right = new MyLine(800,0,800,500,Color.BLACK);
+		MyLine diagonal = new MyLine(0,0,800,500,Color.BLACK);
 		top.draw(gc);
 		bottom.draw(gc);
 		left.draw(gc);
