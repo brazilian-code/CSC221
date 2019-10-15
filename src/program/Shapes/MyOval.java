@@ -6,7 +6,6 @@ import javafx.scene.paint.Color;
 
 public class MyOval extends MyShape {
     private double x, y, height, width;
-    private MyRectangle boundary;
     private Color color;
     
     public MyOval(double xx, double yy, double w, double h, Color colour){
@@ -16,7 +15,6 @@ public class MyOval extends MyShape {
         this.x = xx;
         this.y = yy;
         this.color = colour;
-        this.boundary = new MyRectangle(h, w, xx, yy, colour);
         
     }
     
@@ -40,7 +38,6 @@ public class MyOval extends MyShape {
     
     public void setColor(Color colour){this.color = colour;}
     
-    public void setBoundary(){boundary = new MyRectangle(height,width,x,y,color);}
     
     @Override
     public String toString(){
