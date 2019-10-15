@@ -1,15 +1,13 @@
 package program.Shapes;
 
-import java.awt.*;
-import java.lang.Object;
 import javafx.scene.canvas.GraphicsContext;
-import program.MyColor;
+import javafx.scene.paint.Color;
 
 public class MyRectangle extends MyShape {
-    private double height, width, area, perimeter, x, y;
-    private MyColor color;
+    private double height, width, x, y;
+    private Color color;
     
-    public MyRectangle(double xx, double yy, double w, double h,  MyColor colour){
+    public MyRectangle(double xx, double yy, double w, double h,  Color colour){
         super(xx,yy,colour);
         this.height = h;
         this.width = w;
@@ -26,7 +24,7 @@ public class MyRectangle extends MyShape {
     
     public double getY(){return this.y;}
     
-    public MyColor getColor(){return this.color;}
+    public Color getColor(){return this.color;}
     
     public void setHeight(double h){this.height = h;}
     
@@ -36,16 +34,11 @@ public class MyRectangle extends MyShape {
     
     public void setY(double yy){this.y = yy;}
     
-    public void setColor(MyColor colour){this.color = colour;}
-    
-    public void setArea(){this.area = this.height * this.width;}
-    
-    public void setPerimeter(){this.perimeter = ((this.height*2)+(this.width*2));}
+    public void setColor(Color colour){this.color = colour;}
     
     @Override
     public String toString(){
-        String message = this.color + " rectangle with Height: " + this.height + " and Width: " + this.width + ", centered at (" + this.x + "," + this.y + ").";
-        return message;
+        return this.color.toString() + " rectangle with Height: " + this.height + " and Width: " + this.width + ", centered at (" + this.x + "," + this.y + ").";
     }
 
 
