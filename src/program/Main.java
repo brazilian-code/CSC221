@@ -7,6 +7,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import program.Shapes.MyShape;
 import program.Shapes.MyLine;
 import program.Shapes.MyOval;
 import program.Shapes.MyRectangle;
