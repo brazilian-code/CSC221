@@ -1,6 +1,5 @@
 package program;
 
-import java.lang.Object;
 import javafx.scene.paint.Color;
 
 
@@ -15,15 +14,15 @@ public enum MyColor {
     MAGENTA (Color.MEDIUMORCHID),
     GREEN (Color.SEAGREEN);
 
+    private Color color;
     private String name;
 
 
-    MyColor(String n) {
-        this.name = n;
+    MyColor(Color colour) {
+        this.color = colour;
     }
 
+    public Color getColor(){return this.color;}
 
-
-    public String getName(){return this.name;}
 
 }
