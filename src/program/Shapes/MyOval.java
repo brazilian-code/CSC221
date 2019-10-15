@@ -1,16 +1,15 @@
 package program.Shapes;
 
-import java.lang.Object;
 import javafx.scene.canvas.GraphicsContext;
-import program.Shapes.MyRectangle;
-import program.MyColor;
+import javafx.scene.paint.Color;
+
 
 public class MyOval extends MyShape {
     private double x, y, height, width;
     private MyRectangle boundary;
-    private MyColor color;
+    private Color color;
     
-    public MyOval(double xx, double yy, double w, double h, MyColor colour){
+    public MyOval(double xx, double yy, double w, double h, Color colour){
         super(xx,yy,colour);
         this.height = h;
         this.width = w;
@@ -29,7 +28,7 @@ public class MyOval extends MyShape {
     
     public double getY(){return this.y;}
     
-    public MyColor getColor(){return this.color;}
+    public Color getColor(){return this.color;}
     
     public void setHeight(double h){this.height = h;}
     
@@ -39,14 +38,13 @@ public class MyOval extends MyShape {
     
     public void setY(double yy){this.y = yy;}
     
-    public void setColor(MyColor colour){this.color = colour;}
+    public void setColor(Color colour){this.color = colour;}
     
     public void setBoundary(){boundary = new MyRectangle(height,width,x,y,color);}
     
     @Override
     public String toString(){
-        String message = this.color + " Oval with Height: " + this.height + " and Width: " + this.width + ", centered at (" + this.x + "," + this.y + ").";
-        return message;
+        return this.color.toString() + " Oval with Height: " + this.height + " and Width: " + this.width + ", centered at (" + this.x + "," + this.y + ").";
     }
     
     @Override
