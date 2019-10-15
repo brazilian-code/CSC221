@@ -1,14 +1,13 @@
 package program.Shapes;
 
-import java.lang.Object;
 import javafx.scene.canvas.GraphicsContext;
-import program.MyColor;
+import javafx.scene.paint.Color;
 
 public class MyLine extends MyShape {
     private double x1,x2,y1,y2;
-    private MyColor color;
+    private Color color;
     
-    public MyLine(double xx1, double yy1, double xx2, double yy2, MyColor colour){
+    public MyLine(double xx1, double yy1, double xx2, double yy2, Color colour){
         super(xx1,yy1,colour);
         this.x1 = xx1;
         this.x2 = xx2;
@@ -25,7 +24,7 @@ public class MyLine extends MyShape {
     
     public double getY2(){return this.y2;}
     
-    public MyColor getColor(){return this.color;}
+    public Color getColor(){return this.color;}
     
     public void setX1(double x){this.x1 = x;}
     
@@ -35,12 +34,11 @@ public class MyLine extends MyShape {
     
     public void setY2(double y){this.y2 = y;}
     
-    public void setColor(MyColor colour){this.color = colour;}
+    public void setColor(Color colour){this.color = colour;}
     
     @Override
     public String toString(){
-        String message = this.color + " line from (" + this.x1 + "," + this.y1 + ") to (" + this.x2 + "," + this.y2 + ").";
-        return message;
+        return this.color.toString() + " line from (" + this.x1 + "," + this.y1 + ") to (" + this.x2 + "," + this.y2 + ").";
     }
     
     @Override
