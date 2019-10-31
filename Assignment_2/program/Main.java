@@ -27,22 +27,25 @@ public class Main extends Application{
 		// 200 - 324
 		// 160 - 259.2
 
-		MyPolygon p1 = new MyPolygon(400,250,250,5,MyColor.BROWN);
+		MyCircle c0 = new MyCircle(400,250,400,MyColor.RED);
+		c0.draw(gc);
+
+		MyPolygon p1 = new MyPolygon(400,250,197.5,5,MyColor.BROWN);
 		p1.draw(gc);
 
-		MyCircle c1 = new MyCircle(400,250,405, MyColor.GREEN);
+		MyCircle c1 = new MyCircle(400,250,315, MyColor.GREEN);
 		c1.draw(gc);
 
-		MyPolygon p2 = new MyPolygon(400,250,200,5,MyColor.PINK);
+		MyPolygon p2 = new MyPolygon(400,250,156.5,5,MyColor.PINK);
 		p2.draw(gc);
 
-		MyCircle c2 = new MyCircle(400,250,324, MyColor.BLUE);
+		MyCircle c2 = new MyCircle(400,250,250, MyColor.BLUE);
 		c2.draw(gc);
 
-		MyPolygon p3 = new MyPolygon(400,250,160,5,MyColor.MAGENTA);
+		MyPolygon p3 = new MyPolygon(400,250,124.2,5,MyColor.MAGENTA);
 		p3.draw(gc);
 
-		MyCircle c3 = new MyCircle(400,250,259.2, MyColor.YELLOW);
+		MyCircle c3 = new MyCircle(400,250,198.4, MyColor.YELLOW);
 		c3.draw(gc);
 
 		
