@@ -6,6 +6,10 @@
 
 ### Prof. Hesham Auda
 
-#### Output:
+#### Output 1:
 
 ![Output](https://user-images.githubusercontent.com/25180215/66805173-51009600-eef2-11e9-9928-003962fafc68.png)
+
+#### Output 2:
+
+
