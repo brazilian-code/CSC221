@@ -16,7 +16,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 
-public class Histogram extends Application{
+public class HistogramAlphaBet extends Application{
 
     @Override public void start(Stage primaryStage) {
         //Read file and arranging the data
