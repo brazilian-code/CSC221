@@ -1,56 +1,100 @@
-package program;
+        Statement stmt = conn.createStatement();
+        ResultSet gpaSet = stmt.executeQuery("SELECT GPA \n" +
+                "FROM classes \n" +
+                "WHERE courseID = 'CSC211' AND semester = 'Fall' AND year = '2019' \n" +
+                "ORDER BY GPA");
 
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.ArcType;
-import program.MyColor;
-
-public class MyPieChart {
-
-    private double x, y;
-    private int n;
-    private double[] frequency;
-    private char[] letters;
-
-    public MyPieChart(double xCoordinate, double yCoordinate, int nn, double[] ff, char[] ll) {
-        this.x = xCoordinate - 150;
-        this.y = yCoordinate - 150;
-        this.n = nn;
-        this.frequency = ff;
-        this.letters = ll;
-    }
-
-    public void draw(GraphicsContext gc){
-        int i;
-        //Starting Angle Positions
-        double[] pAngle = new double[26];
-        double total = 0;
-        int length = letters.length;
-        for(i = 0; i < 26; i++){
-            pAngle[i] = total;
-            total += this.frequency[i] * 360;
+        String[] gpa = new String[7];
+        int count = 0;
+        while(set.next()){
+            gpa[count] = gpaSet.getString(1);
+            count += 1;
         }
 
-        if(this.n !=26) {
-            //All Other Events
-            double angChart;
-            gc.setFill(Color.color(Math.random(),Math.random(),Math.random()));
-            if(this.n !=0){
-                angChart = (((Math.round(pAngle[n] * 10000d) / 10000d)) / 360);
-                gc.fillArc(this.x, this.y, 300, 300, pAngle[n], 374.3 - pAngle[n], ArcType.ROUND);
-            }else{
-                angChart = 0;
-                gc.fillArc(this.x, this.y, 300, 300, pAngle[n], 360 - angChart, ArcType.ROUND);
+        
+
+        System.out.print("\n");
+        while(set.next()){
+            String setString = set.getString(1);
+            System.out.println(setString);
+        }
+
+
+        
+        char[] collectionGPA= new char[7];
+        List<String> letterList = new ArrayList<String>();
+        List<Double> freqList = new ArrayList<Double>();
+        char[] letters = new char[4];
+        double[] freq = new double[4];
+        int total = 0;
+        while(set.next()){
+            collectionGPA[total] = set.getString(2).charAt(0);
+            total++;
+        }
+
+        for(int i = 0; i < collectionGPA.length; i++){
+            System.out.println("\n" + collectionGPA[i]);
+        }
+
+        boolean[] visited = new boolean[total];
+        Arrays.fill(visited,false);
+
+        for(int i = 0; i < total; i++){
+            if(visited[i] == true){continue;}
+            int count = 1;
+            for(int j = i + 1; j < total; j++){
+                if(collectionGPA[i] == collectionGPA[j]){
+                    visited[j] = true;
+                    count++;
+                }
             }
-            gc.fillText("Sum of Other Events: " + Math.round((1 - angChart) * 10000d) / 10000d, 620, 10.5);
-            gc.fillRect(595, 0, 10, 10);
+           //letterList.add(collectionGPA[i]);
+            double frequency = count/total;
+            freqList.add(frequency);
         }
-        //Input n Events
-        for(i = 1; i < this.n + 1; i++){
-            gc.setFill(Color.color(Math.random(),Math.random(),Math.random()));
-            gc.fillArc(this.x, this.y, 300, 300, pAngle[i - 1], this.frequency[i - 1] * 360 + 0.55, ArcType.ROUND);
-            gc.fillText("" + this.letters[i - 1] + ": " + Math.round(this.frequency[i - 1] * 10000d) / 10000d, 620, 30 + ((i-1) * 20));
-            gc.fillRect(595, ((i) * 20), 10, 10);
+
+        for(int i = 0; i < 4; i++ ){
+            freq[i] = freqList.get(i);
+            letters[i] = letterList.get(i).charAt(0);
         }
-    }
-}
+
+
+        
+        Scene scene;
+        primaryStage.setTitle("CSC221 - Final Project; David Balaban");
+        StackPane pane = new StackPane();
+        scene = new Scene(pane,800,500);
+        Canvas canvas = new Canvas(800,500);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        pane.getChildren().add(canvas);
+
+        char[] letters = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+        double[] freq = new double[26];
+        freq[0] = 3/7;
+        freq[1] = 1/7;
+        freq[2] = 2/7;
+        freq[5] = 3/7;
+
+        for (int i = 0; i < freq.length; i++) {
+            int m = i;
+            for (int j = i; j < freq.length; j++) {
+                if (freq[j] > freq[m]) {
+                    m = j;
+                }
+            }
+            double tempDouble;
+            tempDouble = freq[i];
+            freq[i] = freq[m];
+            freq[m] = tempDouble;
+
+            char tempChar;
+            tempChar = letters[i];
+            letters[i] = letters[m];
+            letters[m] = tempChar;
+        }
+
+
+        MyPieChart chart = new MyPieChart(400,250,4,freq,letters);
+        chart.draw(gc);
+        primaryStage.setScene(scene);
+        primaryStage.show();
