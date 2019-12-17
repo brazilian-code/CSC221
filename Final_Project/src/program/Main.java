@@ -69,18 +69,21 @@ public class Main extends Application {
 
 
         Statement studentStatement = conn.createStatement();
+        studentStatement.execute("DROP TABLE IF EXISTS Students");
         boolean studentResult = studentStatement.execute("CREATE TABLE Students " +
                 " (studentID int UNSIGNED NOT NULL, " +
                 " PRIMARY KEY (studentID), firstName varchar(255), " +
                 " lastName varchar(255), sex char(1))");
 
         Statement courseStatement = conn.createStatement();
+        courseStatement.execute("DROP TABLE IF EXISTS Courses");
         boolean courseResult = courseStatement.execute("CREATE TABLE Courses " +
                 " (courseID char(6), " +
                 " PRIMARY KEY (courseID), courseTitle varchar(255), " +
                 " department varchar(255))");
 
         Statement classesStatement = conn.createStatement();
+        classesStatement.execute("DROP TABLE IF EXISTS Classes");
         boolean classesResult = classesStatement.execute("CREATE TABLE Classes " +
                 " (classCode char(6), " +
                 " PRIMARY KEY (classCode,StudentID), courseId char(6), " +
@@ -90,7 +93,7 @@ public class Main extends Application {
                 " GPA char(1))");
 
         boolean result = studentResult && courseResult && classesResult;
-        System.out.print("Table creation result: " + result + " (false is expected result)");
+        System.out.print("Table creation result: " + !result + " (true is expected result)");
 
         Statement insert = conn.createStatement();
         // Inserting entries into the Students table (20)
